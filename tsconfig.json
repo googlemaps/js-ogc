@@ -6,11 +6,9 @@
     "outDir": "./dist",
     "sourceMap": true,
     "esModuleInterop": true,
-    "lib": ["DOM", "ESNext", "ES2019"],
+    "lib": ["DOM", "ESNext"],
     "target": "ES6",
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "resolveJsonModule": true
+    "moduleResolution": "node"
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*"]
 }
