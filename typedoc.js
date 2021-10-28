@@ -15,8 +15,8 @@
  */
 
 module.exports = {
-  out: "docs",
-  exclude: ["**/node_modules/**", "**/*.spec.ts", "**/*.test.ts"],
-  name: "@googlemaps/ogc",
+  out: 'docs',
+  exclude: ['**/node_modules/**', '**/*.spec.ts', '**/*.test.ts'],
+  name: '@googlemaps/ogc',
   excludePrivate: true,
 };

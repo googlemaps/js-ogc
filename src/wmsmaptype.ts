@@ -15,15 +15,15 @@
  */
 
 /// <reference types="@types/google.maps" />
-import { stringify } from "query-string";
+import {stringify} from 'query-string';
 
 /**
  * @ignore
  */
 const DEFAULT_WMS_PARAMS = {
-  request: "GetMap",
-  service: "WMS",
-  srs: "EPSG:3857",
+  request: 'GetMap',
+  service: 'WMS',
+  srs: 'EPSG:3857',
 };
 
 /**
@@ -81,11 +81,11 @@ interface WmsMapTypeOptions {
 const WmsMapType = function ({
   url,
   layers,
-  styles = "",
-  bgcolor = "0xFFFFFF",
-  version = "1.1.1",
+  styles = '',
+  bgcolor = '0xFFFFFF',
+  version = '1.1.1',
   transparent = true,
-  format = "image/png",
+  format = 'image/png',
   outline = false,
   // google.maps.ImageMapTypeOptions interface
   name,
@@ -110,15 +110,15 @@ const WmsMapType = function ({
     ...DEFAULT_WMS_PARAMS,
   };
 
-  if (url.slice(-1) !== "?") {
-    url += "?";
+  if (url.slice(-1) !== '?') {
+    url += '?';
   }
 
   const getTileUrl = function (coord: google.maps.Point, zoom: number): string {
     return (
       url +
       stringify({
-        bbox: xyzToBounds(coord.x, coord.y, zoom).join(","),
+        bbox: xyzToBounds(coord.x, coord.y, zoom).join(','),
         ...params,
       })
     );

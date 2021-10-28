@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-export { WmsMapType, WmsMapTypeOptions, xyzToBounds } from "./wmsmaptype";
+export {WmsMapType, WmsMapTypeOptions, xyzToBounds} from './wmsmaptype';
