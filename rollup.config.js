@@ -29,7 +29,7 @@ export default [
   {
     input: "src/index.ts",
     plugins: [
-      typescript(),
+      typescript({ tsconfig: "./tsconfig.json", declarationDir: "./" }),
       commonjs(),
       babel(babelOptions),
       terser(terserOptions),
@@ -52,7 +52,7 @@ export default [
   {
     input: "src/index.ts",
     plugins: [
-      typescript(),
+      typescript({ tsconfig: "./tsconfig.json", declarationDir: "./" }),
       commonjs(),
       babel(babelOptions),
       terser(terserOptions),
@@ -66,7 +66,9 @@ export default [
   },
   {
     input: "src/index.ts",
-    plugins: [typescript()],
+    plugins: [
+      typescript({ tsconfig: "./tsconfig.json", declarationDir: "./" }),
+    ],
     output: {
       file: "dist/index.esm.js",
       format: "esm",
