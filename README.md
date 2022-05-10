@@ -1,7 +1,7 @@
 # OGC Plugin for Google Maps
 
 [![npm](https://img.shields.io/npm/v/@googlemaps/ogc)](https://www.npmjs.com/package/@googlemaps/ogc)
-![Build](https://github.com/googlemaps/js-ogc/workflows/Build/badge.svg)
+![Build](https://github.com/googlemaps/js-ogc/workflows/Test/badge.svg)
 ![Release](https://github.com/googlemaps/js-ogc/workflows/Release/badge.svg)
 [![codecov](https://codecov.io/gh/googlemaps/js-ogc/branch/main/graph/badge.svg)](https://codecov.io/gh/googlemaps/js-ogc)
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/js-ogc?color=green)
