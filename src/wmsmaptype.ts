@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-/// <reference types="@types/google.maps" />
-import { stringify } from "query-string";
-
 /**
  * @ignore
  */
@@ -101,12 +98,12 @@ const WmsMapType = function ({
     layers,
     styles,
     version,
-    transparent,
+    transparent: String(transparent),
     bgcolor,
     format,
-    outline,
-    width: tileSize.width,
-    height: tileSize.height,
+    outline: String(outline),
+    width: String(tileSize.width),
+    height: String(tileSize.height),
     ...DEFAULT_WMS_PARAMS,
   };
 
@@ -117,10 +114,10 @@ const WmsMapType = function ({
   const getTileUrl = function (coord: google.maps.Point, zoom: number): string {
     return (
       url +
-      stringify({
+      new URLSearchParams({
         bbox: xyzToBounds(coord.x, coord.y, zoom).join(","),
         ...params,
-      })
+      }).toString()
     );
   };
 

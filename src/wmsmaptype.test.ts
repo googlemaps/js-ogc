@@ -25,7 +25,6 @@ import {
   WmsMapTypeOptions,
   DEFAULT_WMS_PARAMS,
 } from "./wmsmaptype";
-import { parse } from "query-string";
 
 beforeEach(() => {
   initialize();
@@ -80,20 +79,17 @@ test.each([
 
   expect(base).toEqual("https://www.mrlc.gov/geoserver/NLCD_Land_Cover/wms");
 
-  const params = parse(queryString, {
-    parseNumbers: true,
-    parseBooleans: true,
-  });
+  const params = new URLSearchParams(queryString);
 
-  expect(params["layers"]).toEqual(options["layers"]);
-  expect(params["bgcolor"]).toEqual(parseInt(options["bgcolor"] || "0xFFFFFF"));
-  expect(params["styles"]).toEqual(options["styles"] || "");
-  expect(params["request"]).toEqual(DEFAULT_WMS_PARAMS.request);
-  expect(params["service"]).toEqual(DEFAULT_WMS_PARAMS.service);
-  expect(params["srs"]).toEqual(DEFAULT_WMS_PARAMS.srs);
-  expect(params["format"]).toEqual(options["format"] || "image/png");
-  expect(params["outline"]).toEqual(options["outline"] || false);
-  expect(params["version"]).toEqual(options["version"] || "1.1.1");
-  expect(params["height"]).toEqual(256);
-  expect(params["width"]).toEqual(256);
+  expect(params.get("layers")).toEqual(options["layers"]);
+  expect(params.get("bgcolor")).toEqual(options["bgcolor"] || "0xFFFFFF");
+  expect(params.get("styles")).toEqual(options["styles"] || "");
+  expect(params.get("request")).toEqual(DEFAULT_WMS_PARAMS.request);
+  expect(params.get("service")).toEqual(DEFAULT_WMS_PARAMS.service);
+  expect(params.get("srs")).toEqual(DEFAULT_WMS_PARAMS.srs);
+  expect(params.get("format")).toEqual(options["format"] || "image/png");
+  expect(params.get("outline")).toEqual(String(options["outline"] || false));
+  expect(params.get("version")).toEqual(options["version"] || "1.1.1");
+  expect(params.get("height")).toEqual("256");
+  expect(params.get("width")).toEqual("256");
 });
