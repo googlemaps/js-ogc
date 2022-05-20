@@ -1,5 +1,3 @@
-import { stringify } from 'query-string';
-
 /**
  * Copyright 2019 Google LLC. All Rights Reserved.
  *
@@ -62,17 +60,14 @@ name, alt, maxZoom, minZoom, opacity, }) {
     const tileSize = new google.maps.Size(256, 256);
     const params = Object.assign({ layers,
         styles,
-        version,
-        transparent,
-        bgcolor,
-        format,
-        outline, width: tileSize.width, height: tileSize.height }, DEFAULT_WMS_PARAMS);
+        version, transparent: String(transparent), bgcolor,
+        format, outline: String(outline), width: String(tileSize.width), height: String(tileSize.height) }, DEFAULT_WMS_PARAMS);
     if (url.slice(-1) !== "?") {
         url += "?";
     }
     const getTileUrl = function (coord, zoom) {
         return (url +
-            stringify(Object.assign({ bbox: xyzToBounds(coord.x, coord.y, zoom).join(",") }, params)));
+            new URLSearchParams(Object.assign({ bbox: xyzToBounds(coord.x, coord.y, zoom).join(",") }, params)).toString());
     };
     return new google.maps.ImageMapType({
         getTileUrl,
